@@ -3,6 +3,7 @@ package vdt.cloud.mid.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vdt.cloud.mid.StudentDTO;
 import vdt.cloud.mid.entity.Student;
 import vdt.cloud.mid.service.StudentService;
 
@@ -24,5 +25,9 @@ public class StudentController {
         return ResponseEntity.ok(studentService.getStudent(id));
     }
 
+    @PostMapping
+    public ResponseEntity<Student> createStudent(@RequestBody StudentDTO studentDTO){
+        return ResponseEntity.ok(studentService.createStudent(studentDTO));
+    }
 }
 
