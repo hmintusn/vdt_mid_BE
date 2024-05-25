@@ -7,6 +7,7 @@ import vdt.cloud.mid.StudentDTO;
 import vdt.cloud.mid.entity.Student;
 import vdt.cloud.mid.service.StudentService;
 
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
@@ -16,7 +17,7 @@ public class StudentController {
     StudentService studentService;
 
     @GetMapping
-    public ResponseEntity<?> getStudents(){
+    public ResponseEntity<List<Student>> getStudents(){
         return ResponseEntity.ok(studentService.listAllStudents());
     }
 
@@ -33,6 +34,12 @@ public class StudentController {
     @PutMapping("/{id}")
     public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody StudentDTO studentDTO ){
         return ResponseEntity.ok(studentService.updateStudent(id, studentDTO));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteStudent(@PathVariable Long id){
+        studentService.deleteStudent(id);
+        return ResponseEntity.ok("Student deleted successfully");
     }
 }
 
