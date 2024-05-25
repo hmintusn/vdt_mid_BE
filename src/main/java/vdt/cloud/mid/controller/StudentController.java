@@ -29,5 +29,10 @@ public class StudentController {
     public ResponseEntity<Student> createStudent(@RequestBody StudentDTO studentDTO){
         return ResponseEntity.ok(studentService.createStudent(studentDTO));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody StudentDTO studentDTO ){
+        return ResponseEntity.ok(studentService.updateStudent(id, studentDTO));
+    }
 }
 
