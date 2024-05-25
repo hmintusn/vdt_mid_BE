@@ -3,6 +3,7 @@ package vdt.cloud.mid.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vdt.cloud.mid.entity.Student;
 import vdt.cloud.mid.service.StudentService;
 
 
@@ -16,6 +17,11 @@ public class StudentController {
     @GetMapping
     public ResponseEntity<?> getStudents(){
         return ResponseEntity.ok(studentService.listAllStudents());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Student> getStudent(@PathVariable Long id){
+        return ResponseEntity.ok(studentService.getStudent(id));
     }
 
 }
