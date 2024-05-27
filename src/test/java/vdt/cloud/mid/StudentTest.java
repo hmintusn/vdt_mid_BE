@@ -1,12 +1,14 @@
-package vdt.cloud.mid.controller;
+package vdt.cloud.mid;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import vdt.cloud.mid.StudentDTO;
+import vdt.cloud.mid.controller.StudentController;
 import vdt.cloud.mid.entity.Student;
 import vdt.cloud.mid.service.StudentService;
 
@@ -16,6 +18,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+@SpringBootTest
 public class StudentTest {
 
     @Mock
